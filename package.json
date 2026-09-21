@@ -1,0 +1,12 @@
+{
+  "name": "rgsg-ihs-g11-booking-netlify",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"Netlify static site + Functions ready\""
+  },
+  "dependencies": {
+    "@netlify/database": "latest",
+    "postgres": "^3.4.7"
+  }
+}
