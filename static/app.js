@@ -202,7 +202,7 @@ async function exportCsv(){
   const tmp=URL.createObjectURL(blob);
   const a=document.createElement("a");
   a.href=tmp;
-  a.download=teacher?`G11_bookings_${teacher}.csv`:"G11_bookings_all.csv";
+  a.download=teacher?`IHS_bookings_${teacher}.csv`:"IHS_bookings_all.csv";
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -223,7 +223,7 @@ function renderStats(){
     ["已预约",s.booked],
     ["已发布时段",s.published],
     ["Coco另行安排",s.coco],
-    ["G11-3学生",s.g11_3]
+    ["G12学生",s.g12]
   ].map(x=>`<div class="stat"><span>${esc(x[0])}</span><b>${x[1]}</b></div>`).join("");
 }
 function studentStatus(s){
@@ -277,7 +277,7 @@ function slotStatus(s){
 function renderSlotTable(){
   const cas=$("#slotCasFilter").value, cls=$("#slotClassFilter").value;
   const rows=adminState.slots.filter(s=>
-    (!cas||s.cas_key===cas)&&(!cls||s.eligible_classes.includes(cls))
+    (!cas||s.cas_key===cas)&&(!cls||(s.available_classes||s.eligible_classes||[]).includes(cls))
   );
   $("#slotTable").innerHTML=
     "<thead><tr><th>日期</th><th>时间</th><th>CAS</th><th>可参与班级</th><th>G12锁定</th><th>家长发布</th><th>状态</th><th>操作</th></tr></thead><tbody>"+
@@ -285,7 +285,7 @@ function renderSlotTable(){
       <td>${esc(s.date)}<br><span class="muted">${esc(s.weekday)}</span></td>
       <td>${esc(s.start)}–${esc(s.end)}</td>
       <td>${esc(s.cas_key)}</td>
-      <td>${s.eligible_classes.map(x=>`<span class="pill">${esc(x)}</span>`).join(" ")}</td>
+      <td>${(s.available_classes||s.eligible_classes||[]).map(x=>`<span class="pill">${esc(x)}</span>`).join(" ")}</td>
       <td>${Number(s.g12_locked)===1?"✅":"—"}</td>
       <td>${Number(s.published)===1?"✅":"—"}</td>
       <td>${slotStatus(s)}</td>
