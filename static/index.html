@@ -3,19 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RGSG IHS · G11 面谈预约（校内测试）</title>
+  <meta name="robots" content="noindex,nofollow">
+  <title>RGSG IHS · G11 升学面谈预约</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="test-ribbon">INTERNAL TEST · 校内测试版 · 非正式家长入口</div>
   <header class="topbar">
     <div>
       <div class="brand">RGSG IHS</div>
       <div class="subtitle">G11 Parent & CAS Meeting Booking</div>
-    </div>
-    <div class="nav">
-      <button id="parentTab" class="navbtn active">家长测试入口</button>
-      <button id="adminTab" class="navbtn">OP / Admin</button>
     </div>
   </header>
 
@@ -24,23 +20,23 @@
       <div class="hero">
         <div>
           <div class="eyebrow">G11 PARENT INTERVIEW</div>
-          <h1>预约升学面谈</h1>
-          <p>测试版会根据学生所属班级、班主任和对应升导，只显示满足规则且已由 OP 模拟发布的时段。</p>
+          <h1>G11 升学面谈预约</h1>
+          <p>请输入学生中文姓名。系统会根据学生所属班级、班主任和对应升导，只显示当前真正可以预约的面谈时间。</p>
         </div>
         <div class="rule-card">
-          <b>测试逻辑</b>
-          <span>G11-1：CAS 可用 ∩ Emma 可用</span>
-          <span>G11-2：CAS 可用 ∩ 金辰昊可用</span>
-          <span>G11-3：待补 Ariel 可用时间</span>
-          <span>Coco：本轮另行预约</span>
+          <b>预约说明</b>
+          <span>请使用学生在校登记的中文姓名进入。</span>
+          <span>每位学生仅可保留一个有效预约。</span>
+          <span>确认成功后，该时段会立即被锁定。</span>
+          <span>如需更改已确认预约，请联系学校工作人员。</span>
         </div>
       </div>
 
       <div class="card narrow" id="lookupCard">
-        <h2>输入测试预约码</h2>
-        <p class="muted">校内测试时请从 OP 提供的《测试预约码.csv》获取。正式版不会公开学生名单。</p>
+        <h2>学生身份确认</h2>
+        <p class="muted">请输入学生中文姓名进入预约。姓名仅用于匹配本次 G11 面谈安排。</p>
         <div class="inline">
-          <input id="bookingCode" autocomplete="off" placeholder="例如 T-XXXXXXXX">
+          <input id="studentChineseName" autocomplete="name" maxlength="30" placeholder="请输入学生中文姓名">
           <button id="lookupBtn" class="primary">进入预约</button>
         </div>
         <div id="lookupError" class="error hidden"></div>
@@ -53,13 +49,18 @@
             <h2 id="studentName"></h2>
             <div id="studentMeta" class="meta"></div>
           </div>
-          <button id="switchStudent" class="ghost">更换预约码</button>
+          <button id="switchStudent" class="ghost">更换学生</button>
         </div>
+
         <div id="studentMessage" class="notice hidden"></div>
         <div id="bookingConfirmed" class="card successbox hidden"></div>
+
         <div id="slotsSection" class="card hidden">
           <div class="section-title">
-            <div><h2>可预约时间</h2><p class="muted">同一时段只能被一位家庭预约，确认后会立即锁定。</p></div>
+            <div>
+              <h2>可预约时间</h2>
+              <p class="muted">同一时段只能由一位家庭预约。确认后，该时段会立即锁定。</p>
+            </div>
             <button id="refreshSlots" class="ghost">刷新</button>
           </div>
           <div id="slotsList"></div>
@@ -69,29 +70,63 @@
 
     <section id="adminView" class="hidden">
       <div class="admin-header">
-        <div><div class="eyebrow">OP / ADMIN</div><h1>校内测试控制台</h1></div>
-        <span class="badge warn">TEST DATABASE</span>
+        <div>
+          <div class="eyebrow">OP / ADMIN</div>
+          <h1>G11 面谈预约管理</h1>
+        </div>
+        <button id="adminBackBtn" class="ghost">返回预约页</button>
       </div>
+
       <div id="adminLogin" class="card narrow">
-        <h2>管理员测试码</h2>
+        <h2>管理员登录</h2>
+        <p class="muted">仅供授权的学校工作人员使用。</p>
         <div class="inline">
-          <input id="adminPin" type="password" placeholder="输入测试码">
+          <input id="adminPin" type="password" autocomplete="current-password" placeholder="输入管理员密码">
           <button id="adminLoginBtn" class="primary">进入后台</button>
         </div>
         <div id="adminError" class="error hidden"></div>
       </div>
+
       <div id="adminPanel" class="hidden">
         <div id="stats" class="stats"></div>
+
         <div class="toolbar card">
-          <button id="samplePublish" class="primary">一键生成测试发布时段</button>
-          <button id="resetTest" class="danger">重置全部测试数据</button>
-          <a id="exportCsv" class="buttonlink ghost" href="#">导出当前预约 CSV</a>
-          <span class="muted">“测试发布”会为 G11-1 / G11-2 各升导模拟锁定少量时段。</span>
+          <button id="refreshAdmin" class="ghost">刷新数据</button>
+          <select id="teacherExportFilter">
+            <option value="">导出：全部老师</option>
+            <option value="Emma">Emma</option>
+            <option value="Joyce">Joyce</option>
+            <option value="Willa">Willa</option>
+            <option value="Layla">Layla</option>
+            <option value="Colin">Colin</option>
+            <option value="Ariel">Ariel</option>
+          </select>
+          <a id="exportCsv" class="buttonlink primary" href="#">导出预约 CSV</a>
         </div>
 
         <div class="card">
           <div class="section-title">
-            <div><h2>学生测试状态</h2><p class="muted">可复制预约码，或直接以该学生身份预览。</p></div>
+            <div>
+              <h2>Emma · G12 已占用时间快速更新</h2>
+              <p class="muted">最快方式：在 WPS 里复制“日期 / 开始 / 结束 / 学生或备注”四列，直接粘贴到下面。点击更新后，系统会立即阻止与这些时间重叠的 G11 预约。</p>
+            </div>
+          </div>
+          <textarea id="emmaG12Paste" class="pastebox" placeholder="示例：
+2026-09-28    09:00    10:00    G12 Student A
+2026-09-29    13:30    14:30    G12 Student B"></textarea>
+          <div class="toolbar compact">
+            <button id="replaceEmmaBlocks" class="primary">覆盖更新 Emma G12 占用时间</button>
+            <span class="muted">支持从 WPS 直接复制粘贴；每行至少包含 日期、开始时间、结束时间。</span>
+          </div>
+          <div id="emmaBlocksSummary" class="muted"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h2>学生预约状态</h2>
+              <p class="muted">查看学生对应升导及当前预约状态。</p>
+            </div>
             <input id="studentSearch" class="smallinput" placeholder="搜索姓名 / 班级 / CAS">
           </div>
           <div class="tablewrap"><table id="studentTable"></table></div>
@@ -99,10 +134,23 @@
 
         <div class="card">
           <div class="section-title">
-            <div><h2>候选时段</h2><p class="muted">只有“已锁定 + 已发布”的时段家长端才可见。</p></div>
+            <div>
+              <h2>候选时段</h2>
+              <p class="muted">只有“G12 已锁定 + 已发布”的时段会显示给家长；如与最新 G12 占用重叠，家长端会自动隐藏。</p>
+            </div>
             <div class="filters">
-              <select id="slotCasFilter"><option value="">全部 CAS</option><option>Joyce</option><option>Willa</option><option>Emma</option><option>Layla</option></select>
-              <select id="slotClassFilter"><option value="">全部班级</option><option>G11-1</option><option>G11-2</option></select>
+              <select id="slotCasFilter">
+                <option value="">全部 CAS</option>
+                <option>Joyce</option>
+                <option>Willa</option>
+                <option>Emma</option>
+                <option>Layla</option>
+              </select>
+              <select id="slotClassFilter">
+                <option value="">全部班级</option>
+                <option>G11-1</option>
+                <option>G11-2</option>
+              </select>
             </div>
           </div>
           <div class="tablewrap"><table id="slotTable"></table></div>
@@ -110,22 +158,27 @@
 
         <div class="card">
           <h2>预约记录</h2>
+          <p class="muted">导出文件中会包含学生、班级、班主任、升导、日期和时间。老师可以清楚看到自己的时间被哪位学生预约。</p>
           <div class="tablewrap"><table id="bookingTable"></table></div>
         </div>
       </div>
     </section>
   </main>
 
+  <footer class="site-footer">RGSG IHS · G11 Parent & CAS Meeting Booking</footer>
+
   <div id="modal" class="modal hidden">
     <div class="modalbox">
       <h2>确认预约</h2>
       <p id="modalText"></p>
+      <p class="muted">确认后，该时段将立即锁定。如需更改，请联系学校工作人员。</p>
       <div class="modalactions">
         <button id="cancelModal" class="ghost">返回</button>
         <button id="confirmBooking" class="primary">确认预约</button>
       </div>
     </div>
   </div>
+
   <div id="toast" class="toast hidden"></div>
   <script src="/app.js"></script>
 </body>
