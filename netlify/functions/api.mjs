@@ -79,6 +79,26 @@ function colinUnavailable(weekday,start,end){
   return (COLIN_BUSY[weekday]||[]).some(([bs,be])=>overlaps(start,end,bs,be));
 }
 
+// G12 form tutor 固定课表（来自 2026-09-21 提供的课表）。
+const G12_TUTOR_BUSY={
+  "G12 1":{
+    "周二":[["08:15","08:55"]],
+    "周三":[["08:15","08:55"],["11:30","12:10"]],
+    "周四":[["11:30","12:10"]],
+    "周五":[["10:00","11:20"],["13:25","14:05"]]
+  },
+  "G12 2":{
+    "周一":[["14:10","14:50"],["15:00","16:20"]],
+    "周三":[["10:00","11:20"]],
+    "周四":[["15:00","16:20"]],
+    "周五":[["08:15","08:55"]]
+  }
+};
+function g12TutorUnavailable(className,weekday,start,end){
+  return (G12_TUTOR_BUSY[className]?.[weekday]||[])
+    .some(([bs,be])=>overlaps(start,end,bs,be));
+}
+
 async function ensureSchema(){
   if(schemaReady)return;
   const sql=db();
@@ -254,9 +274,12 @@ async function getStudentPayload(sql,student){
     const classEligible=Array.isArray(r.eligible_classes)&&r.eligible_classes.includes(student.class_name);
     // G11-2：优先学生 + CAS；Colin 有课只提示。
     // G11-3：Ariel 默认全部时间可参加，因此只看学生对应 CAS 的可预约时间。
-    if(!["G11-2","G11-3"].includes(student.class_name)&&!classEligible)continue;
+    // G12：只看 CAS 可用时段，同时必须避开对应班主任的固定教学/值班时间。
+    const isG12=String(student.class_name||"").startsWith("G12 ");
+    if(!["G11-2","G11-3"].includes(student.class_name)&&!isG12&&!classEligible)continue;
     if(isPast(r.date,r.start))continue;
     if(await blockedForStudent(sql,student,r.date,r.start,r.end))continue;
+    if(isG12&&g12TutorUnavailable(student.class_name,r.weekday,r.start,r.end))continue;
     slots.push({
       slot_key:r.slot_key,date:r.date,start:r.start,end:r.end,
       weekday:r.weekday,cas_key:r.cas_key,
@@ -317,8 +340,12 @@ async function handle(req){
         if(!sl)throw new Error("时段不存在");
         if(sl.cas_key!==s.cas_key)throw new Error("该时段不属于学生对应升导");
         const classEligible=Array.isArray(sl.eligible_classes)&&sl.eligible_classes.includes(s.class_name);
-        if(!["G11-2","G11-3"].includes(s.class_name)&&!classEligible){
+        const isG12=String(s.class_name||"").startsWith("G12 ");
+        if(!["G11-2","G11-3"].includes(s.class_name)&&!isG12&&!classEligible){
           throw new Error("班主任无法参加该时段");
+        }
+        if(isG12&&g12TutorUnavailable(s.class_name,sl.weekday,sl.start,sl.end)){
+          throw new Error("该时段班主任有课，请选择其他时间。");
         }
         if(!sl.published||!sl.g12_locked)throw new Error("该时段尚未开放");
         if(isPast(sl.date,sl.start))throw new Error("该时段已经开始或已过期");
@@ -375,6 +402,7 @@ async function handle(req){
       in_round:students.filter(s=>s.round_status==="纳入本轮").length,
       coco:students.filter(s=>s.cas_key==="Coco").length,
       g11_3:students.filter(s=>s.class_name==="G11-3"&&s.round_status==="纳入本轮").length,
+      g12:students.filter(s=>String(s.class_name||"").startsWith("G12 ")&&s.round_status==="纳入本轮").length,
       published:slots.filter(s=>Number(s.published)===1).length,
       booked:bookings.filter(b=>b.status==="active").length
     };
@@ -426,7 +454,7 @@ async function handle(req){
       status:200,
       headers:{
         "content-type":"text/csv; charset=utf-8",
-        "content-disposition":'attachment; filename="G11_bookings.csv"',
+        "content-disposition":'attachment; filename="IHS_parent_interview_bookings.csv"',
         "cache-control":"no-store"
       }
     });
