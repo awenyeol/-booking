@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>RGSG IHS · G11 升学面谈预约</title>
+  <title>RGSG IHS · 升学面谈预约</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="topbar">
     <div>
       <div class="brand">RGSG IHS</div>
-      <div class="subtitle">G11 Parent & CAS Meeting Booking</div>
+      <div class="subtitle">Parent & CAS Meeting Booking</div>
     </div>
   </header>
 
@@ -19,9 +19,9 @@
     <section id="parentView">
       <div class="hero">
         <div>
-          <div class="eyebrow">G11 PARENT INTERVIEW</div>
-          <h1>G11 升学面谈预约</h1>
-          <p>请输入学生中文姓名。系统会根据学生所属班级、班主任和对应升导，只显示当前真正可以预约的面谈时间。</p>
+          <div class="eyebrow">PARENT INTERVIEW</div>
+          <h1>升学面谈预约</h1>
+          <p>请输入学生中文姓名。系统会自动识别 G11 / G12，并根据学生所属班级、班主任和对应升导显示可预约时间。</p>
         </div>
         <div class="rule-card">
           <b>预约说明</b>
@@ -34,7 +34,7 @@
 
       <div class="card narrow" id="lookupCard">
         <h2>学生身份确认</h2>
-        <p class="muted">请输入学生中文姓名进入预约。姓名仅用于匹配本次 G11 面谈安排。</p>
+        <p class="muted">请输入学生中文姓名进入预约。姓名仅用于匹配本次面谈安排。</p>
         <div class="inline">
           <input id="studentChineseName" autocomplete="name" maxlength="30" placeholder="请输入学生中文姓名">
           <button id="lookupBtn" class="primary">进入预约</button>
@@ -72,7 +72,7 @@
       <div class="admin-header">
         <div>
           <div class="eyebrow">OP / ADMIN</div>
-          <h1>G11 面谈预约管理</h1>
+          <h1>面谈预约管理</h1>
         </div>
         <button id="adminBackBtn" class="ghost">返回预约页</button>
       </div>
@@ -108,8 +108,8 @@
         <div class="card">
           <div class="section-title">
             <div>
-              <h2>Emma · G12 已占用时间快速更新</h2>
-              <p class="muted">最快方式：在 WPS 里复制“日期 / 开始 / 结束 / 学生或备注”四列，直接粘贴到下面。点击更新后，系统会立即阻止与这些时间重叠的 G11 预约。</p>
+              <h2>Emma · 线下 / 已有 G12 占用时间补充</h2>
+              <p class="muted">如果还有尚未迁入本系统的 G12 预约，可从 WPS 复制“日期 / 开始 / 结束 / 学生或备注”四列粘贴到这里。系统会阻止这些时间再次被 G11 / G12 预约。</p>
             </div>
           </div>
           <textarea id="emmaG12Paste" class="pastebox" placeholder="示例：
@@ -152,6 +152,8 @@
                 <option>G11-1</option>
                 <option>G11-2</option>
                 <option>G11-3</option>
+                <option>G12 1</option>
+                <option>G12 2</option>
               </select>
             </div>
           </div>
@@ -167,7 +169,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">RGSG IHS · G11 Parent & CAS Meeting Booking</footer>
+  <footer class="site-footer">RGSG IHS · Parent & CAS Meeting Booking</footer>
 
   <div id="modal" class="modal hidden">
     <div class="modalbox">
