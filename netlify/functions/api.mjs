@@ -437,6 +437,32 @@ async function handle(req){
     const denied=requireAdmin(req,body);
     if(denied)return denied;
 
+    if(path==="/api/admin/publish-all"){
+      const rows=await sql`
+        SELECT slot_key,date,start,booked_student_id
+        FROM slots
+        ORDER BY date,start
+      `;
+
+      const eligible=rows.filter(r=>
+        r.booked_student_id===null &&
+        !isPast(r.date,r.start)
+      );
+
+      await sql.begin(async tx=>{
+        for(const r of eligible){
+          await tx`
+            UPDATE slots
+            SET g12_locked=1,published=1
+            WHERE slot_key=${r.slot_key}
+              AND booked_student_id IS NULL
+          `;
+        }
+      });
+
+      return json({ok:true,published:eligible.length});
+    }
+
     if(path==="/api/admin/slot"){
       const key=String(body.slot_key||"");
       const action=String(body.action||"");
