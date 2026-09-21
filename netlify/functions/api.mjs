@@ -254,8 +254,9 @@ async function ensureSeeded(){
       `;
     }
 
-    // 一次性迁移原 G12 预约表里已经确认的预约。
-    const migrationKey="g12_existing_bookings_v1";
+    // 一次性迁移旧预约表里已经确认的 G11 / G12 预约。
+    // v2 包含用户提供的 Joyce / Emma / Willa 三张历史预约表。
+    const migrationKey="legacy_existing_bookings_v2";
     const migrated=await tx`SELECT key FROM system_meta WHERE key=${migrationKey} LIMIT 1`;
     if(!migrated[0]&&Array.isArray(seed.initial_bookings)){
       for(const b of seed.initial_bookings){
@@ -263,6 +264,7 @@ async function ensureSeeded(){
         const slots=await tx`SELECT slot_key FROM slots WHERE slot_key=${b.slot_key} LIMIT 1`;
         if(!students[0]||!slots[0])continue;
         const studentId=students[0].id;
+
         const existing=await tx`
           SELECT id FROM bookings
           WHERE student_id=${studentId} AND status='active'
@@ -270,12 +272,18 @@ async function ensureSeeded(){
         `;
         if(existing[0])continue;
 
-        await tx`
+        // 只有成功占到该 slot 才写入预约记录，避免旧记录覆盖线上新预约。
+        const claimed=await tx`
           UPDATE slots
-          SET booked_student_id=${studentId}
+          SET booked_student_id=${studentId},
+              g12_locked=1,
+              published=1
           WHERE slot_key=${b.slot_key}
             AND booked_student_id IS NULL
+          RETURNING slot_key
         `;
+        if(!claimed[0])continue;
+
         await tx`
           INSERT INTO bookings(student_id,slot_key,status,created_at)
           VALUES(${studentId},${b.slot_key},'active',${b.created_at||shanghaiNow()})
