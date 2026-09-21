@@ -94,6 +94,7 @@ function renderStudent(){
        <h2>预约已确认</h2>
        <div class="bookingline">${fmtDate(b.date)} ${esc(b.weekday||"")} · ${esc(b.start)}–${esc(b.end)}</div>
        <div>升导：${esc(currentStudent.cas)}　班主任：${esc(currentStudent.tutor)}</div>
+       ${b.tutor_unavailable?'<div class="booking-warning">该时段班主任 Colin 无法参加，本次面谈将由学生与升导进行。</div>':""}
        <p class="muted">如需更改或取消预约，请联系班主任或学校 OP。</p>`;
     conf.classList.remove("hidden");
     return;
@@ -139,7 +140,7 @@ function renderSlots(slots){
     groups[date].forEach(s=>{
       const b=document.createElement("button");
       b.className="slot";
-      b.innerHTML=`<b>${esc(s.start)}–${esc(s.end)}</b><small>${esc(casFull(s.cas_key))}</small>`;
+      b.innerHTML=`<b>${esc(s.start)}–${esc(s.end)}</b><small>${esc(casFull(s.cas_key))}</small>${s.tutor_unavailable?'<span class="slot-warning">班主任无法参加</span>':""}`;
       b.onclick=()=>openModal(s);
       grid.appendChild(b);
     });
@@ -149,8 +150,9 @@ function renderSlots(slots){
 
 function openModal(s){
   pendingSlot=s;
-  $("#modalText").textContent=
-    `${currentStudent.zh_name} · ${fmtDate(s.date)} ${s.weekday||""} ${s.start}–${s.end} · ${currentStudent.cas}`;
+  $("#modalText").innerHTML=
+    `${esc(currentStudent.zh_name)} · ${fmtDate(s.date)} ${esc(s.weekday||"")} ${esc(s.start)}–${esc(s.end)} · ${esc(currentStudent.cas)}`+
+    (s.tutor_unavailable?'<div class="modal-warning">该时段 Colin 有教学课，班主任无法参加；学生仍可与升导进行面谈。</div>':"");
   $("#modal").classList.remove("hidden");
 }
 $("#cancelModal").onclick=()=>$("#modal").classList.add("hidden");
@@ -273,6 +275,7 @@ function blockAffectsSlot(s){
 function slotStatus(s){
   if(s.booked_student_id)return '<span class="status-green">已被预约</span>';
   if(blockAffectsSlot(s))return '<span class="status-red">G12时间冲突</span>';
+  if(s.colin_unavailable)return '<span class="status-amber">Colin有课｜仍可预约</span>';
   if(Number(s.published)===1&&Number(s.g12_locked)===1)return '<span class="status-green">已发布</span>';
   if(Number(s.g12_locked)===1)return '<span class="status-amber">已锁定未发布</span>';
   return "<span>候选</span>";
