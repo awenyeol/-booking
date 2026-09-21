@@ -93,9 +93,9 @@ async function ensureSeeded(){
   const sql=db();
   await sql.begin(async tx=>{
     await tx`SELECT pg_advisory_xact_lock(917260921)`;
-    const rows=await tx`SELECT COUNT(*)::int AS count FROM students`;
-    if(rows[0].count>0)return;
 
+    // 每次启动/请求都以 seed 中的最新名单同步学生基础资料。
+    // 预约记录仍然按 student id 保留，不会因为名单同步而被删除。
     for(const s of seed.students){
       await tx`
         INSERT INTO students
@@ -103,9 +103,19 @@ async function ensureSeeded(){
         VALUES
           (${s.id},${s.zh_name},${s.en_name||""},${s.class_name},${s.tutor},
            ${s.cas},${s.cas_key},${s.round_status},${s.token})
-        ON CONFLICT (id) DO NOTHING
+        ON CONFLICT (id) DO UPDATE SET
+          zh_name=EXCLUDED.zh_name,
+          en_name=EXCLUDED.en_name,
+          class_name=EXCLUDED.class_name,
+          tutor=EXCLUDED.tutor,
+          cas=EXCLUDED.cas,
+          cas_key=EXCLUDED.cas_key,
+          round_status=EXCLUDED.round_status,
+          token=EXCLUDED.token
       `;
     }
+
+    // 候选时段的基础信息同步，但保留后台已经设置的发布、锁定和预约状态。
     for(const sl of seed.slots){
       await tx`
         INSERT INTO slots
@@ -114,7 +124,15 @@ async function ensureSeeded(){
           (${sl.slot_key},${sl.cas_key},${sl.date},${sl.start},${sl.end},
            ${sl.weekday||""},${tx.json(sl.eligible_classes||[])},
            ${sl.source_status||""},${sl.source_reason||""})
-        ON CONFLICT (slot_key) DO NOTHING
+        ON CONFLICT (slot_key) DO UPDATE SET
+          cas_key=EXCLUDED.cas_key,
+          date=EXCLUDED.date,
+          start=EXCLUDED.start,
+          "end"=EXCLUDED."end",
+          weekday=EXCLUDED.weekday,
+          eligible_classes=EXCLUDED.eligible_classes,
+          source_status=EXCLUDED.source_status,
+          source_reason=EXCLUDED.source_reason
       `;
     }
   });
