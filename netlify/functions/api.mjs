@@ -66,6 +66,19 @@ function isPast(date,start){return `${date} ${start}:00`<=shanghaiNow();}
 function cleanName(v){return String(v||"").trim();}
 function overlaps(aStart,aEnd,bStart,bEnd){return aStart<bEnd&&aEnd>bStart;}
 
+// G11-2 特殊规则：Colin 的课表不再阻止家长预约。
+// 若面谈时间与 Colin 的教学课重叠，只在家长端标注“班主任无法参加”。
+const COLIN_BUSY={
+  "周一":[["13:25","14:50"],["15:00","16:20"]],
+  "周二":[["08:15","09:40"],["15:00","16:20"]],
+  "周三":[["11:30","12:10"]],
+  "周四":[["15:00","16:20"]],
+  "周五":[["11:30","12:10"],["13:25","14:50"]]
+};
+function colinUnavailable(weekday,start,end){
+  return (COLIN_BUSY[weekday]||[]).some(([bs,be])=>overlaps(start,end,bs,be));
+}
+
 async function ensureSchema(){
   if(schemaReady)return;
   const sql=db();
@@ -176,7 +189,13 @@ async function getStudentPayload(sql,student){
     cas:student.cas,
     cas_key:student.cas_key,
     round_status:student.round_status,
-    booking:active[0]?{...active[0],end:active[0].end}:null
+    booking:active[0]?{
+      ...active[0],
+      end:active[0].end,
+      tutor_unavailable:student.class_name==="G11-2"
+        ?colinUnavailable(active[0].weekday,active[0].start,active[0].end)
+        :false
+    }:null
   };
 
   if(student.cas_key==="Coco"){
@@ -201,12 +220,17 @@ async function getStudentPayload(sql,student){
 
   const slots=[];
   for(const r of rows){
-    if(!Array.isArray(r.eligible_classes)||!r.eligible_classes.includes(student.class_name))continue;
+    const classEligible=Array.isArray(r.eligible_classes)&&r.eligible_classes.includes(student.class_name);
+    // G11-2 以“学生 + CAS 可用”为优先；Colin 是否有课不再作为拦截条件。
+    if(student.class_name!=="G11-2"&&!classEligible)continue;
     if(isPast(r.date,r.start))continue;
     if(await blockedForStudent(sql,student,r.date,r.start,r.end))continue;
     slots.push({
       slot_key:r.slot_key,date:r.date,start:r.start,end:r.end,
-      weekday:r.weekday,cas_key:r.cas_key
+      weekday:r.weekday,cas_key:r.cas_key,
+      tutor_unavailable:student.class_name==="G11-2"
+        ?colinUnavailable(r.weekday,r.start,r.end)
+        :false
     });
   }
   out.availability_state="ready";
@@ -261,7 +285,8 @@ async function handle(req){
         const sl=slots[0];
         if(!sl)throw new Error("时段不存在");
         if(sl.cas_key!==s.cas_key)throw new Error("该时段不属于学生对应升导");
-        if(!Array.isArray(sl.eligible_classes)||!sl.eligible_classes.includes(s.class_name)){
+        const classEligible=Array.isArray(sl.eligible_classes)&&sl.eligible_classes.includes(s.class_name);
+        if(s.class_name!=="G11-2"&&!classEligible){
           throw new Error("班主任无法参加该时段");
         }
         if(!sl.published||!sl.g12_locked)throw new Error("该时段尚未开放");
@@ -309,7 +334,11 @@ async function handle(req){
       ORDER BY b.created_at DESC
     `;
 
-    const slots=slotsRaw.map(r=>({...r,end:r.end}));
+    const slots=slotsRaw.map(r=>({
+      ...r,
+      end:r.end,
+      colin_unavailable:colinUnavailable(r.weekday,r.start,r.end)
+    }));
     const stats={
       students_total:students.length,
       in_round:students.filter(s=>s.round_status==="纳入本轮").length,
@@ -351,10 +380,15 @@ async function handle(req){
         ORDER BY sl.date,sl.start
       `;
 
-    const header=["中文姓名","English Name","班级","班主任","升导","日期","开始","结束","预约提交时间"];
+    const header=["中文姓名","English Name","班级","班主任","升导","日期","开始","结束","班主任参与情况","预约提交时间"];
     const lines=[header,...rows.map(r=>[
       r.zh_name,r.en_name,r.class_name,r.tutor,r.cas,
-      r.date,r.start,r.end,r.created_at
+      r.date,r.start,r.end,
+      r.class_name==="G11-2"&&colinUnavailable(
+        (new Intl.DateTimeFormat("zh-CN",{weekday:"short",timeZone:"Asia/Shanghai"}).format(new Date(r.date+"T00:00:00+08:00"))).replace("星期","周"),
+        r.start,r.end
+      )?"班主任无法参加":"班主任可参加",
+      r.created_at
     ])].map(row=>row.map(csvEscape).join(","));
 
     return new Response("\uFEFF"+lines.join("\r\n"),{
