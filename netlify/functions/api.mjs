@@ -66,6 +66,68 @@ function isPast(date,start){return `${date} ${start}:00`<=shanghaiNow();}
 function cleanName(v){return String(v||"").trim();}
 function overlaps(aStart,aEnd,bStart,bEnd){return aStart<bEnd&&aEnd>bStart;}
 
+function dingtalkWebhook(){
+  return (process.env.DINGTALK_BOOKING_WEBHOOK||"").trim();
+}
+
+async function sendDingTalkBookingNotification(student){
+  const webhook=dingtalkWebhook();
+  if(!webhook||!student?.booking)return {sent:false,reason:"not_configured"};
+
+  const b=student.booking;
+  const message=[
+    "【新增升学面谈预约】",
+    `学生：${student.zh_name}${student.en_name?" · "+student.en_name:""}`,
+    `班级：${student.class_name}`,
+    `CAS：${student.cas}`,
+    `班主任：${student.tutor}`,
+    `时间：${b.date} ${b.weekday||""} ${b.start}–${b.end}`,
+    b.tutor_unavailable?"备注：该时段班主任无法参加":"状态：预约已确认"
+  ].join("\n");
+
+  const payload={
+    event:"booking_created",
+    title:"新增升学面谈预约",
+    content:message,
+    message,
+    msgtype:"text",
+    text:{content:message},
+    student:{
+      id:student.id,
+      zh_name:student.zh_name,
+      en_name:student.en_name,
+      class_name:student.class_name,
+      tutor:student.tutor,
+      cas:student.cas,
+      cas_key:student.cas_key
+    },
+    booking:{
+      slot_key:b.slot_key,
+      date:b.date,
+      weekday:b.weekday||"",
+      start:b.start,
+      end:b.end
+    }
+  };
+
+  try{
+    const r=await fetch(webhook,{
+      method:"POST",
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    const responseText=await r.text().catch(()=>"");
+    if(!r.ok){
+      console.error("DingTalk webhook failed",r.status,responseText.slice(0,500));
+      return {sent:false,reason:"http_error",status:r.status};
+    }
+    return {sent:true,status:r.status};
+  }catch(e){
+    console.error("DingTalk webhook error",e);
+    return {sent:false,reason:"network_error"};
+  }
+}
+
 // G11-2 特殊规则：Colin 的课表不再阻止家长预约。
 // 若面谈时间与 Colin 的教学课重叠，只在家长端标注“班主任无法参加”。
 const COLIN_BUSY={
@@ -412,7 +474,9 @@ async function handle(req){
         const fresh=(await tx`SELECT * FROM students WHERE id=${s.id}`)[0];
         return getStudentPayload(tx,fresh);
       });
-      return json({ok:true,student:await result});
+      const bookedStudent=await result;
+      const notify=await sendDingTalkBookingNotification(bookedStudent);
+      return json({ok:true,student:bookedStudent,notification:notify});
     }catch(e){
       return json({error:e.message||"预约失败"},409);
     }
@@ -517,6 +581,29 @@ async function handle(req){
     const body=await req.json().catch(()=>({}));
     const denied=requireAdmin(req,body);
     if(denied)return denied;
+
+    if(path==="/api/admin/test-dingtalk"){
+      if(!dingtalkWebhook())return json({error:"尚未配置 DINGTALK_BOOKING_WEBHOOK 环境变量。"},503);
+      const testStudent={
+        id:"test",
+        zh_name:"测试学生",
+        en_name:"Test Student",
+        class_name:"G11-TEST",
+        tutor:"Test Form Tutor",
+        cas:"Test CAS",
+        cas_key:"Test",
+        booking:{
+          slot_key:"TEST",
+          date:new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),
+          weekday:"测试",
+          start:"00:00",
+          end:"00:30"
+        }
+      };
+      const result=await sendDingTalkBookingNotification(testStudent);
+      if(!result.sent)return json({error:"钉钉 Webhook 调用失败，请检查连接器配置。",detail:result},502);
+      return json({ok:true,result});
+    }
 
     if(path==="/api/admin/publish-all"){
       const rows=await sql`
