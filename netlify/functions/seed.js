@@ -1,0 +1,1843 @@
+export default {
+  "generated_at": "2026-09-21T10:57:00+08:00",
+  "students": [
+    {
+      "id": 1,
+      "zh_name": "程浛芸",
+      "gender": "女",
+      "en_name": "Anna",
+      "boarding": "住宿",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-EA855942"
+    },
+    {
+      "id": 2,
+      "zh_name": "何璟行",
+      "gender": "男",
+      "en_name": "Charlie H",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-9B220828"
+    },
+    {
+      "id": 3,
+      "zh_name": "李缙",
+      "gender": "女",
+      "en_name": "Jenny",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-8A8AF1BD"
+    },
+    {
+      "id": 4,
+      "zh_name": "李熠宸",
+      "gender": "男",
+      "en_name": "Eason L",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-C7F9739D"
+    },
+    {
+      "id": 5,
+      "zh_name": "汪子哲",
+      "gender": "男",
+      "en_name": "Eric W",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-E38479A4"
+    },
+    {
+      "id": 6,
+      "zh_name": "王俊皓",
+      "gender": "男",
+      "en_name": "Jim",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-BCCC2C7B"
+    },
+    {
+      "id": 7,
+      "zh_name": "王天翼",
+      "gender": "男",
+      "en_name": "Tiger",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-3B7230E0"
+    },
+    {
+      "id": 8,
+      "zh_name": "王星皓",
+      "gender": "男",
+      "en_name": "Frank W",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-7E4E2022"
+    },
+    {
+      "id": 9,
+      "zh_name": "薛诒涵",
+      "gender": "女",
+      "en_name": "Cecilia X",
+      "boarding": "住宿",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-F4DF54F5"
+    },
+    {
+      "id": 10,
+      "zh_name": "虞冉",
+      "gender": "女",
+      "en_name": "Grace Y",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-966498BF"
+    },
+    {
+      "id": 11,
+      "zh_name": "郑书阳",
+      "gender": "女",
+      "en_name": "Leona",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-8D81300B"
+    },
+    {
+      "id": 12,
+      "zh_name": "朱娅萱",
+      "gender": "女",
+      "en_name": "Rosie",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-7FB3643B"
+    },
+    {
+      "id": 13,
+      "zh_name": "童赞伦",
+      "gender": "男",
+      "en_name": "Lorcan",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-753FFEBA"
+    },
+    {
+      "id": 14,
+      "zh_name": "Nick Swig",
+      "gender": null,
+      "en_name": "Nick Swig",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-1894B312"
+    },
+    {
+      "id": 15,
+      "zh_name": "李锦昱",
+      "gender": "男",
+      "en_name": "Cray",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-44ACA3F6"
+    },
+    {
+      "id": 16,
+      "zh_name": "乔梓涵",
+      "gender": "女",
+      "en_name": "Annie Q Z",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-66AB94B7"
+    },
+    {
+      "id": 17,
+      "zh_name": "施雨灿",
+      "gender": "男",
+      "en_name": "Scott",
+      "boarding": "走读",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-55C8A3B5"
+    },
+    {
+      "id": 18,
+      "zh_name": "徐敏知",
+      "gender": "男",
+      "en_name": "Morris",
+      "boarding": "住宿",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-2CB2ACE5"
+    },
+    {
+      "id": 19,
+      "zh_name": "于敏行",
+      "gender": "男",
+      "en_name": "Apple",
+      "boarding": "住宿",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-D8DE6188"
+    },
+    {
+      "id": 20,
+      "zh_name": "曹煜洋",
+      "gender": "女",
+      "en_name": "Rebecca",
+      "boarding": "住宿",
+      "class_name": "G11-1",
+      "tutor": "Emma 马高霞",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-E15AE838"
+    },
+    {
+      "id": 21,
+      "zh_name": "包林昊",
+      "gender": "男",
+      "en_name": "Bob",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-7C9CB379"
+    },
+    {
+      "id": 22,
+      "zh_name": "刘思妍",
+      "gender": "女",
+      "en_name": "Laura L",
+      "boarding": "走读",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-FBE90E2D"
+    },
+    {
+      "id": 23,
+      "zh_name": "骆佳博",
+      "gender": "男",
+      "en_name": "Nick",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-E5A2247D"
+    },
+    {
+      "id": 24,
+      "zh_name": "孙翼霄",
+      "gender": "男",
+      "en_name": "Couson",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-1BE1E328"
+    },
+    {
+      "id": 25,
+      "zh_name": "孙梓麟",
+      "gender": "男",
+      "en_name": "Sullivan",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-D8A4B68C"
+    },
+    {
+      "id": 26,
+      "zh_name": "王嘉源",
+      "gender": "男",
+      "en_name": "Kevin W",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-5F755919"
+    },
+    {
+      "id": 27,
+      "zh_name": "王艺霏",
+      "gender": "女",
+      "en_name": "Viki",
+      "boarding": "走读",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-7C84211A"
+    },
+    {
+      "id": 28,
+      "zh_name": "王紫骁",
+      "gender": "男",
+      "en_name": "Shawn",
+      "boarding": "走读",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-396DE4B0"
+    },
+    {
+      "id": 29,
+      "zh_name": "吴绍辉",
+      "gender": "男",
+      "en_name": "Tony",
+      "boarding": "走读",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-87581C0C"
+    },
+    {
+      "id": 30,
+      "zh_name": "张雨辰",
+      "gender": "男",
+      "en_name": "Sandy",
+      "boarding": "走读",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-0ABE21A3"
+    },
+    {
+      "id": 31,
+      "zh_name": "陈妍",
+      "gender": "女",
+      "en_name": "Celia",
+      "boarding": "住宿",
+      "class_name": "G11-2",
+      "tutor": "金辰昊 Chenhao Jin",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-9AE7118F"
+    },
+    {
+      "id": 32,
+      "zh_name": "李豪越",
+      "gender": "男",
+      "en_name": "Max",
+      "boarding": "走读",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-C5BA8770"
+    },
+    {
+      "id": 33,
+      "zh_name": "刘朔岐",
+      "gender": "男",
+      "en_name": "Jack L",
+      "boarding": "走读",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-CABF1132"
+    },
+    {
+      "id": 34,
+      "zh_name": "马思雨",
+      "gender": "女",
+      "en_name": "Sunny M",
+      "boarding": "住宿",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-57BB622D"
+    },
+    {
+      "id": 35,
+      "zh_name": "马梓宸",
+      "gender": "男",
+      "en_name": "Martin",
+      "boarding": "走读",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-539395C6"
+    },
+    {
+      "id": 36,
+      "zh_name": "汪润泽",
+      "gender": "男",
+      "en_name": "Randy",
+      "boarding": "走读",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Coco 关晓玉",
+      "cas_key": "Coco",
+      "round_status": "暂不纳入",
+      "note": "Coco 另行预约，暂不处理",
+      "token": "T-C452EFEB"
+    },
+    {
+      "id": 37,
+      "zh_name": "王博文",
+      "gender": "男",
+      "en_name": "Mars",
+      "boarding": "住宿",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-04BC9CE9"
+    },
+    {
+      "id": 38,
+      "zh_name": "吴受宁",
+      "gender": "男",
+      "en_name": "Alan W",
+      "boarding": "住宿",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Joyce 吕怡潼",
+      "cas_key": "Joyce",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-D1A58A1C"
+    },
+    {
+      "id": 39,
+      "zh_name": "吴斯",
+      "gender": "男",
+      "en_name": "Cain",
+      "boarding": "参加晚自习后离校",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Emma 马高霞",
+      "cas_key": "Emma",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-BD9D690E"
+    },
+    {
+      "id": 40,
+      "zh_name": "杜禹贤",
+      "gender": "男",
+      "en_name": "Derrick",
+      "boarding": "走读",
+      "class_name": "G11-3",
+      "tutor": "Ariel 尚佳雯",
+      "cas": "Willa 姚肖敏",
+      "cas_key": "Willa",
+      "round_status": "纳入本轮",
+      "note": null,
+      "token": "T-86A5EF48"
+    }
+  ],
+  "slots": [
+    {
+      "slot_key": "Emma|2026-09-21|10:15|11:15",
+      "cas_key": "Emma",
+      "date": "2026-09-21",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-21|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-21",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-21|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-21",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-22|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-22",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-22|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-22",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-22|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-22",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-22|10:15|11:15",
+      "cas_key": "Emma",
+      "date": "2026-09-22",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-22|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-22",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-22|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-22",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-22|13:30|14:45",
+      "cas_key": "Layla",
+      "date": "2026-09-22",
+      "start": "13:30",
+      "end": "14:45",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-22|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-22",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-22|16:00|17:00",
+      "cas_key": "Emma",
+      "date": "2026-09-22",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-22|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-22",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-22|16:00|17:00",
+      "cas_key": "Layla",
+      "date": "2026-09-22",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-22|16:00|17:00",
+      "cas_key": "Willa",
+      "date": "2026-09-22",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-23|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-23",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-23|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-23",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-23|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-23",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-23|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-23",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-23|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-23",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-23|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-23",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-23|13:30|14:30",
+      "cas_key": "Emma",
+      "date": "2026-09-23",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-23|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-23",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-23|13:30|14:45",
+      "cas_key": "Layla",
+      "date": "2026-09-23",
+      "start": "13:30",
+      "end": "14:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-23|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-23",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-23|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-23",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-23|14:55|15:45",
+      "cas_key": "Emma",
+      "date": "2026-09-23",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-23|14:55|15:45",
+      "cas_key": "Layla",
+      "date": "2026-09-23",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-23|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-23",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-23|16:00|17:00",
+      "cas_key": "Emma",
+      "date": "2026-09-23",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-23|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-23",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-23|16:00|17:00",
+      "cas_key": "Layla",
+      "date": "2026-09-23",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-23|16:00|17:00",
+      "cas_key": "Willa",
+      "date": "2026-09-23",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-24|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-24",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-24|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-24",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-24|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-24",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-24|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-24",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-24|10:15|11:15",
+      "cas_key": "Emma",
+      "date": "2026-09-24",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-24|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-24",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-24|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-24",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-24|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-24",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-24|13:30|14:30",
+      "cas_key": "Emma",
+      "date": "2026-09-24",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-24|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-24",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-24|13:30|14:45",
+      "cas_key": "Layla",
+      "date": "2026-09-24",
+      "start": "13:30",
+      "end": "14:45",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-24|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-24",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-24|14:55|15:45",
+      "cas_key": "Emma",
+      "date": "2026-09-24",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-24|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-24",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-24|16:00|17:00",
+      "cas_key": "Emma",
+      "date": "2026-09-24",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-24|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-24",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周四",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-28|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-28",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-28|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-28",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-28|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-28",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-28|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-28",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-28|10:15|11:15",
+      "cas_key": "Emma",
+      "date": "2026-09-28",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-28|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-28",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-28|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-28",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-28|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-28",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-28|13:30|14:30",
+      "cas_key": "Emma",
+      "date": "2026-09-28",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-28|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-28",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-28|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-28",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周一",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-29|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-29",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-29|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-29",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-29|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-29",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-29|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-29",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-29|10:15|11:15",
+      "cas_key": "Emma",
+      "date": "2026-09-29",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-29|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-29",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-29|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-29",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-29|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-29",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-29|13:30|14:30",
+      "cas_key": "Emma",
+      "date": "2026-09-29",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-29|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-29",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-29|13:30|14:45",
+      "cas_key": "Layla",
+      "date": "2026-09-29",
+      "start": "13:30",
+      "end": "14:45",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-29|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-29",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-29|14:55|15:45",
+      "cas_key": "Emma",
+      "date": "2026-09-29",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-29|14:55|15:45",
+      "cas_key": "Layla",
+      "date": "2026-09-29",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-29|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-29",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-29|16:00|17:00",
+      "cas_key": "Emma",
+      "date": "2026-09-29",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-29|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-29",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-29|16:00|17:00",
+      "cas_key": "Layla",
+      "date": "2026-09-29",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-29|16:00|17:00",
+      "cas_key": "Willa",
+      "date": "2026-09-29",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周二",
+      "eligible_classes": [
+        "G11-1"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-30|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-30",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-30|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-30",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-30|09:00|10:00",
+      "cas_key": "Layla",
+      "date": "2026-09-30",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-30|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-30",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-30|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-30",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-30|10:15|11:15",
+      "cas_key": "Layla",
+      "date": "2026-09-30",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-30|10:15|11:15",
+      "cas_key": "Willa",
+      "date": "2026-09-30",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-30|13:30|14:30",
+      "cas_key": "Emma",
+      "date": "2026-09-30",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-30|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-30",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Layla|2026-09-30|13:30|14:45",
+      "cas_key": "Layla",
+      "date": "2026-09-30",
+      "start": "13:30",
+      "end": "14:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-30|13:30|14:30",
+      "cas_key": "Willa",
+      "date": "2026-09-30",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-30|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-30",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Emma|2026-09-30|14:55|15:45",
+      "cas_key": "Emma",
+      "date": "2026-09-30",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Willa|2026-09-30|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-30",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-1",
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-30|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-30",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周三",
+      "eligible_classes": [
+        "G11-2"
+      ],
+      "source_status": "待锁定",
+      "source_reason": "条件可用，需先从十二年级预约端锁定"
+    }
+  ]
+};
