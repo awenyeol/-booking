@@ -134,6 +134,13 @@ async function ensureSchema(){
     CREATE INDEX IF NOT EXISTS tutor_availability_person_date_idx
     ON tutor_availability(person_key,date)
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS system_meta(
+      key TEXT PRIMARY KEY,
+      value TEXT,
+      updated_at TEXT NOT NULL
+    )
+  `;
   schemaReady=true;
 }
 
@@ -182,6 +189,41 @@ async function ensureSeeded(){
           eligible_classes=EXCLUDED.eligible_classes,
           source_status=EXCLUDED.source_status,
           source_reason=EXCLUDED.source_reason
+      `;
+    }
+
+    // 一次性迁移原 G12 预约表里已经确认的预约。
+    const migrationKey="g12_existing_bookings_v1";
+    const migrated=await tx`SELECT key FROM system_meta WHERE key=${migrationKey} LIMIT 1`;
+    if(!migrated[0]&&Array.isArray(seed.initial_bookings)){
+      for(const b of seed.initial_bookings){
+        const students=await tx`SELECT id FROM students WHERE zh_name=${b.zh_name} LIMIT 1`;
+        const slots=await tx`SELECT slot_key FROM slots WHERE slot_key=${b.slot_key} LIMIT 1`;
+        if(!students[0]||!slots[0])continue;
+        const studentId=students[0].id;
+        const existing=await tx`
+          SELECT id FROM bookings
+          WHERE student_id=${studentId} AND status='active'
+          LIMIT 1
+        `;
+        if(existing[0])continue;
+
+        await tx`
+          UPDATE slots
+          SET booked_student_id=${studentId}
+          WHERE slot_key=${b.slot_key}
+            AND booked_student_id IS NULL
+        `;
+        await tx`
+          INSERT INTO bookings(student_id,slot_key,status,created_at)
+          VALUES(${studentId},${b.slot_key},'active',${b.created_at||shanghaiNow()})
+          ON CONFLICT DO NOTHING
+        `;
+      }
+      await tx`
+        INSERT INTO system_meta(key,value,updated_at)
+        VALUES(${migrationKey},'done',${shanghaiNow()})
+        ON CONFLICT (key) DO NOTHING
       `;
     }
   });
