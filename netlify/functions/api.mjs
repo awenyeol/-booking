@@ -392,11 +392,22 @@ async function handle(req){
       ORDER BY b.created_at DESC
     `;
 
-    const slots=slotsRaw.map(r=>({
-      ...r,
-      end:r.end,
-      colin_unavailable:colinUnavailable(r.weekday,r.start,r.end)
-    }));
+    const slots=slotsRaw.map(r=>{
+      const availableClasses=[];
+      if(Array.isArray(r.eligible_classes)&&r.eligible_classes.includes("G11-1"))availableClasses.push("G11-1");
+      // G11-2 / G11-3 现在都以 CAS 时间优先。
+      availableClasses.push("G11-2","G11-3");
+      if(!g12TutorUnavailable("G12 1",r.weekday,r.start,r.end))availableClasses.push("G12 1");
+      if(!g12TutorUnavailable("G12 2",r.weekday,r.start,r.end))availableClasses.push("G12 2");
+      return {
+        ...r,
+        end:r.end,
+        available_classes:[...new Set(availableClasses)],
+        colin_unavailable:colinUnavailable(r.weekday,r.start,r.end),
+        g12_1_tutor_unavailable:g12TutorUnavailable("G12 1",r.weekday,r.start,r.end),
+        g12_2_tutor_unavailable:g12TutorUnavailable("G12 2",r.weekday,r.start,r.end)
+      };
+    });
     const stats={
       students_total:students.length,
       in_round:students.filter(s=>s.round_status==="纳入本轮").length,
