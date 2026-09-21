@@ -1,0 +1,13 @@
+# 仅用于短时间 UI / 流程演示：没有持久磁盘，重新部署/重启后预约数据可能丢失。
+services:
+  - type: web
+    name: rgsg-ihs-g11-booking-demo
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: python -m compileall server.py
+    startCommand: python server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: IHS_TEST_ADMIN_PIN
+        sync: false
