@@ -17,3 +17,8 @@ button,.buttonlink{font:inherit;cursor:pointer;border-radius:9px;padding:10px 14
 .modal{position:fixed;inset:0;background:rgba(13,24,38,.5);display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modalbox{background:#fff;border-radius:16px;padding:24px;max-width:460px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.22)}.modalactions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}.toast{position:fixed;right:20px;bottom:20px;background:#172033;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.2);z-index:40}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.rule-card{display:none}.topbar{padding:0 16px}.subtitle{display:none}.hero h1,.admin-header h1{font-size:30px}.slots{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.section-title{align-items:flex-start;flex-direction:column}.smallinput{width:100%}}
 @media(max-width:520px){main{margin-top:22px}.topbar{height:auto;padding:15px;gap:12px;align-items:flex-start;flex-direction:column}.slots{grid-template-columns:1fr}.inline{flex-direction:column}.student-head{align-items:flex-start;gap:14px;flex-direction:column}.stats{grid-template-columns:1fr 1fr}.toolbar>*{width:100%}}
+
+.site-footer{max-width:1160px;margin:0 auto 30px;padding:0 18px;color:var(--muted);font-size:12px;text-align:center}
+.pastebox{width:100%;min-height:150px;border:1px solid #cbd5df;border-radius:10px;padding:12px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+.pastebox:focus{outline:none;border-color:#6f9fc2;box-shadow:0 0 0 3px rgba(31,78,120,.09)}
+.toolbar.compact{margin-top:12px;padding:0;border:0;box-shadow:none}
