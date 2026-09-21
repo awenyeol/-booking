@@ -390,6 +390,18 @@ $("#replaceEmmaBlocks").onclick=async()=>{
 };
 
 $("#refreshAdmin").onclick=()=>loadAdmin().catch(e=>alert(e.message));
+
+$("#publishAllSlots").onclick=async()=>{
+  if(!confirm("确定一键锁定并发布全部未过期、未被预约的候选时段吗？\n\n已录入的 G12 冲突仍会在家长端自动隐藏。"))return;
+  try{
+    const j=await api("/api/admin/publish-all",{pin:adminPin});
+    await loadAdmin();
+    toast(`已锁定并发布 ${j.published} 个时段`);
+  }catch(e){
+    alert(e.message);
+  }
+};
+
 $("#exportCsv").onclick=async(e)=>{
   e.preventDefault();
   try{await exportCsv()}catch(err){alert(err.message)}
