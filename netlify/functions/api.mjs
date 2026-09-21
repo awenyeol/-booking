@@ -28,10 +28,28 @@ function json(data,status=200,extraHeaders={}){
   });
 }
 
+function adminPinValue(){
+  return (process.env.IHS_ADMIN_PIN||process.env.IHS_TEST_ADMIN_PIN||"").trim();
+}
+
+function adminPinConfigured(){
+  return Boolean(adminPinValue());
+}
+
 function adminPinOK(req,body={}){
   const pin=(req.headers.get("x-admin-pin")||body.pin||"").trim();
-  const expected=(process.env.IHS_ADMIN_PIN||process.env.IHS_TEST_ADMIN_PIN||"").trim();
+  const expected=adminPinValue();
   return Boolean(expected)&&pin===expected;
+}
+
+function requireAdmin(req,body={}){
+  if(!adminPinConfigured()){
+    return json({error:"后台管理员密码尚未配置，请先在 Netlify 设置 IHS_ADMIN_PIN。"},503);
+  }
+  if(!adminPinOK(req,body)){
+    return json({error:"管理员密码不正确"},403);
+  }
+  return null;
 }
 
 function shanghaiNow(){
@@ -184,10 +202,8 @@ function csvEscape(v){
 }
 
 async function handle(req){
-  if(!process.env.IHS_ADMIN_PIN&&!process.env.IHS_TEST_ADMIN_PIN){
-    return json({error:"Netlify 尚未设置 IHS_ADMIN_PIN 环境变量"},500);
-  }
-
+  // 家长端查询与预约不依赖管理员密码。
+  // IHS_ADMIN_PIN 只保护 /api/admin/* 后台接口。
   await ensureSeeded();
   const sql=db();
   const url=new URL(req.url);
@@ -260,7 +276,8 @@ async function handle(req){
   }
 
   if(path==="/api/admin/state"&&req.method==="GET"){
-    if(!adminPinOK(req))return json({error:"管理员密码不正确"},403);
+    const denied=requireAdmin(req);
+    if(denied)return denied;
 
     const students=await sql`SELECT * FROM students ORDER BY class_name,id`;
     const slotsRaw=await sql`SELECT * FROM slots ORDER BY date,start,cas_key`;
@@ -290,7 +307,8 @@ async function handle(req){
   }
 
   if(path==="/api/admin/export.csv"&&req.method==="GET"){
-    if(!adminPinOK(req))return json({error:"管理员密码不正确"},403);
+    const denied=requireAdmin(req);
+    if(denied)return denied;
     const teacher=(url.searchParams.get("teacher")||"").trim();
     const pattern=teacher?`%${teacher}%`:"";
 
@@ -333,7 +351,8 @@ async function handle(req){
 
   if(path.startsWith("/api/admin/")&&req.method==="POST"){
     const body=await req.json().catch(()=>({}));
-    if(!adminPinOK(req,body))return json({error:"管理员密码不正确"},403);
+    const denied=requireAdmin(req,body);
+    if(denied)return denied;
 
     if(path==="/api/admin/slot"){
       const key=String(body.slot_key||"");
