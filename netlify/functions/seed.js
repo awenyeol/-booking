@@ -1097,6 +1097,17 @@ export default {
       "source_reason": "条件可用，需先从十二年级预约端锁定"
     },
     {
+      "slot_key": "Joyce|2026-09-22|10:15|11:15",
+      "cas_key": "Joyce",
+      "date": "2026-09-22",
+      "start": "10:15",
+      "end": "11:15",
+      "weekday": "周二",
+      "eligible_classes": [],
+      "source_status": "已预约",
+      "source_reason": "迁移自原 G12 预约表：缪晨雨"
+    },
+    {
       "slot_key": "Layla|2026-09-22|10:15|11:15",
       "cas_key": "Layla",
       "date": "2026-09-22",
@@ -1159,6 +1170,17 @@ export default {
       "eligible_classes": [],
       "source_status": "可用",
       "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Emma|2026-09-22|14:55|15:45",
+      "cas_key": "Emma",
+      "date": "2026-09-22",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [],
+      "source_status": "已预约",
+      "source_reason": "迁移自原 G12 预约表：费子杰"
     },
     {
       "slot_key": "Willa|2026-09-22|14:55|15:45",
@@ -2364,6 +2386,18 @@ export default {
       ],
       "source_status": "待锁定",
       "source_reason": "条件可用，需先从十二年级预约端锁定"
+    }
+  ],
+  "initial_bookings": [
+    {
+      "zh_name": "缪晨雨",
+      "slot_key": "Joyce|2026-09-22|10:15|11:15",
+      "created_at": "2026-09-21 15:30:00"
+    },
+    {
+      "zh_name": "费子杰",
+      "slot_key": "Emma|2026-09-22|14:55|15:45",
+      "created_at": "2026-09-21 15:30:00"
     }
   ]
 };
