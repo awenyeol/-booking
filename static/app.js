@@ -391,6 +391,15 @@ $("#replaceEmmaBlocks").onclick=async()=>{
 
 $("#refreshAdmin").onclick=()=>loadAdmin().catch(e=>alert(e.message));
 
+$("#testDingTalk").onclick=async()=>{
+  try{
+    await api("/api/admin/test-dingtalk",{pin:adminPin});
+    toast("钉钉测试通知已发送");
+  }catch(e){
+    alert(e.message);
+  }
+};
+
 $("#publishAllSlots").onclick=async()=>{
   if(!confirm("确定一键锁定并发布全部未过期、未被预约的候选时段吗？\n\n已录入的 G12 冲突仍会在家长端自动隐藏。"))return;
   try{
