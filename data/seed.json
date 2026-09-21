@@ -1074,13 +1074,13 @@
       "cas_key": "Willa",
       "date": "2026-09-22",
       "start": "09:00",
-      "end": "10:00",
+      "end": "09:55",
       "weekday": "周二",
       "eligible_classes": [
         "G11-1"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：周哲宜"
     },
     {
       "slot_key": "Emma|2026-09-22|10:15|11:15",
@@ -1105,7 +1105,7 @@
       "weekday": "周二",
       "eligible_classes": [],
       "source_status": "已预约",
-      "source_reason": "迁移自原 G12 预约表：缪晨雨"
+      "source_reason": "迁移自原预约表：缪晨雨"
     },
     {
       "slot_key": "Layla|2026-09-22|10:15|11:15",
@@ -1131,8 +1131,8 @@
       "eligible_classes": [
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：于敏行"
     },
     {
       "slot_key": "Layla|2026-09-22|13:30|14:45",
@@ -1180,7 +1180,7 @@
       "weekday": "周二",
       "eligible_classes": [],
       "source_status": "已预约",
-      "source_reason": "迁移自原 G12 预约表：费子杰"
+      "source_reason": "迁移自原预约表：费子杰"
     },
     {
       "slot_key": "Willa|2026-09-22|14:55|15:45",
@@ -1292,14 +1292,14 @@
       "cas_key": "Willa",
       "date": "2026-09-23",
       "start": "09:00",
-      "end": "10:00",
+      "end": "09:55",
       "weekday": "周三",
       "eligible_classes": [
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：张耀文"
     },
     {
       "slot_key": "Joyce|2026-09-23|10:15|11:15",
@@ -1324,8 +1324,8 @@
       "eligible_classes": [
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：李加梁"
     },
     {
       "slot_key": "Emma|2026-09-23|13:30|14:30",
@@ -1434,8 +1434,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：鲁乔岳"
     },
     {
       "slot_key": "Emma|2026-09-23|16:00|17:00",
@@ -1448,8 +1448,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：骆佳博"
     },
     {
       "slot_key": "Joyce|2026-09-23|16:00|17:00",
@@ -1462,8 +1462,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：王俊皓"
     },
     {
       "slot_key": "Layla|2026-09-23|16:00|17:00",
@@ -1490,8 +1490,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：潘柯雅"
     },
     {
       "slot_key": "Emma|2026-09-24|09:00|10:00",
@@ -1560,8 +1560,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：孙梓麟"
     },
     {
       "slot_key": "Joyce|2026-09-24|10:15|11:15",
@@ -1602,8 +1602,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：杨思语"
     },
     {
       "slot_key": "Emma|2026-09-24|13:30|14:30",
@@ -1630,8 +1630,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：何璟行"
     },
     {
       "slot_key": "Layla|2026-09-24|13:30|14:45",
@@ -1681,8 +1681,8 @@
       "eligible_classes": [
         "G11-1"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：吴子墨"
     },
     {
       "slot_key": "Willa|2026-09-24|14:55|15:45",
@@ -1707,8 +1707,8 @@
       "eligible_classes": [
         "G11-1"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：汪子哲"
     },
     {
       "slot_key": "Joyce|2026-09-24|16:00|17:00",
@@ -1734,8 +1734,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：王紫骁"
     },
     {
       "slot_key": "Joyce|2026-09-28|09:00|10:00",
@@ -2357,8 +2357,8 @@
         "G11-1",
         "G11-2"
       ],
-      "source_status": "待锁定",
-      "source_reason": "条件可用，需先从十二年级预约端锁定"
+      "source_status": "已预约",
+      "source_reason": "迁移自原预约表：吴绍辉"
     },
     {
       "slot_key": "Willa|2026-09-30|14:55|15:45",
@@ -2392,12 +2392,87 @@
     {
       "zh_name": "缪晨雨",
       "slot_key": "Joyce|2026-09-22|10:15|11:15",
-      "created_at": "2026-09-21 15:30:00"
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "于敏行",
+      "slot_key": "Joyce|2026-09-22|13:30|14:30",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "何璟行",
+      "slot_key": "Joyce|2026-09-24|13:30|14:30",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "王俊皓",
+      "slot_key": "Joyce|2026-09-23|16:00|17:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "王紫骁",
+      "slot_key": "Emma|2026-09-28|09:00|10:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "孙梓麟",
+      "slot_key": "Emma|2026-09-24|10:15|11:15",
+      "created_at": "2026-09-21 19:42:00"
     },
     {
       "zh_name": "费子杰",
       "slot_key": "Emma|2026-09-22|14:55|15:45",
-      "created_at": "2026-09-21 15:30:00"
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "吴子墨",
+      "slot_key": "Emma|2026-09-24|14:55|15:45",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "吴绍辉",
+      "slot_key": "Emma|2026-09-30|14:55|15:45",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "骆佳博",
+      "slot_key": "Emma|2026-09-23|16:00|17:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "汪子哲",
+      "slot_key": "Emma|2026-09-24|16:00|17:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "周哲宜",
+      "slot_key": "Willa|2026-09-22|09:00|10:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "张耀文",
+      "slot_key": "Willa|2026-09-23|09:00|10:00",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "李加梁",
+      "slot_key": "Willa|2026-09-23|10:15|11:15",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "杨思语",
+      "slot_key": "Willa|2026-09-24|10:15|11:15",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "鲁乔岳",
+      "slot_key": "Willa|2026-09-23|14:55|15:45",
+      "created_at": "2026-09-21 19:42:00"
+    },
+    {
+      "zh_name": "潘柯雅",
+      "slot_key": "Willa|2026-09-23|16:00|17:00",
+      "created_at": "2026-09-21 19:42:00"
     }
   ]
 }
