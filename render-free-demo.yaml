@@ -5,8 +5,8 @@ services:
     runtime: python
     region: singapore
     plan: free
-    buildCommand: python -m compileall server.py
-    startCommand: python server.py
+    buildCommand: python3 -m compileall server.py
+    startCommand: python3 server.py
     healthCheckPath: /api/health
     envVars:
       - key: IHS_TEST_ADMIN_PIN
