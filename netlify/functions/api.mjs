@@ -235,9 +235,6 @@ async function getStudentPayload(sql,student){
   if(student.cas_key==="Coco"){
     out.availability_state="coco_separate";out.slots=[];return out;
   }
-  if(student.class_name==="G11-3"&&!(await tutorHasAvailability(sql,"Ariel"))){
-    out.availability_state="tutor_pending";out.slots=[];return out;
-  }
   if(student.round_status!=="纳入本轮"){
     out.availability_state="not_in_round";out.slots=[];return out;
   }
@@ -256,11 +253,10 @@ async function getStudentPayload(sql,student){
   for(const r of rows){
     const classEligible=Array.isArray(r.eligible_classes)&&r.eligible_classes.includes(student.class_name);
     // G11-2：优先学生 + CAS；Colin 有课只提示。
-    // G11-3：优先 CAS，并要求该完整时段落在 Ariel 已录入的可参加时间内。
+    // G11-3：Ariel 默认全部时间可参加，因此只看学生对应 CAS 的可预约时间。
     if(!["G11-2","G11-3"].includes(student.class_name)&&!classEligible)continue;
     if(isPast(r.date,r.start))continue;
     if(await blockedForStudent(sql,student,r.date,r.start,r.end))continue;
-    if(student.class_name==="G11-3"&&!(await tutorAvailable(sql,"Ariel",r.date,r.start,r.end)))continue;
     slots.push({
       slot_key:r.slot_key,date:r.date,start:r.start,end:r.end,
       weekday:r.weekday,cas_key:r.cas_key,
@@ -324,9 +320,6 @@ async function handle(req){
         if(!["G11-2","G11-3"].includes(s.class_name)&&!classEligible){
           throw new Error("班主任无法参加该时段");
         }
-        if(s.class_name==="G11-3"&&!(await tutorAvailable(tx,"Ariel",sl.date,sl.start,sl.end))){
-          throw new Error("Ariel 无法参加该时段，请选择其他时间。");
-        }
         if(!sl.published||!sl.g12_locked)throw new Error("该时段尚未开放");
         if(isPast(sl.date,sl.start))throw new Error("该时段已经开始或已过期");
         if(await blockedForStudent(tx,s,sl.date,sl.start,sl.end)){
@@ -363,7 +356,6 @@ async function handle(req){
     const students=await sql`SELECT * FROM students ORDER BY class_name,id`;
     const slotsRaw=await sql`SELECT * FROM slots ORDER BY date,start,cas_key`;
     const g12Blocks=await sql`SELECT * FROM g12_blocks ORDER BY date DESC,start DESC`;
-    const tutorAvailability=await sql`SELECT * FROM tutor_availability ORDER BY date DESC,start DESC`;
     const bookings=await sql`
       SELECT b.*,s.zh_name,s.en_name,s.class_name,s.tutor,s.cas,s.cas_key,
              sl.date,sl.start,sl."end"
@@ -373,14 +365,10 @@ async function handle(req){
       ORDER BY b.created_at DESC
     `;
 
-    const arielAvailability=tutorAvailability.filter(a=>a.person_key==="Ariel");
     const slots=slotsRaw.map(r=>({
       ...r,
       end:r.end,
-      colin_unavailable:colinUnavailable(r.weekday,r.start,r.end),
-      ariel_available:arielAvailability.some(a=>
-        a.date===r.date&&a.start<=r.start&&a.end>=r.end
-      )
+      colin_unavailable:colinUnavailable(r.weekday,r.start,r.end)
     }));
     const stats={
       students_total:students.length,
@@ -391,7 +379,7 @@ async function handle(req){
       booked:bookings.filter(b=>b.status==="active").length
     };
     return json({
-      students,slots,g12_blocks:g12Blocks,tutor_availability:tutorAvailability,
+      students,slots,g12_blocks:g12Blocks,
       bookings:bookings.map(b=>({...b,end:b.end})),stats
     });
   }
@@ -489,32 +477,6 @@ async function handle(req){
       }catch(e){
         return json({error:e.message},409);
       }
-    }
-
-    if(path==="/api/admin/tutor-availability/replace"){
-      const personKey=String(body.person_key||"").trim();
-      const blocks=Array.isArray(body.blocks)?body.blocks:[];
-      if(!personKey)return json({error:"缺少老师"},400);
-
-      for(const b of blocks){
-        if(!/^\d{4}-\d{2}-\d{2}$/.test(String(b.date||"")) ||
-           !/^\d{2}:\d{2}$/.test(String(b.start||"")) ||
-           !/^\d{2}:\d{2}$/.test(String(b.end||"")) ||
-           b.start>=b.end){
-          return json({error:"可参加时间格式不正确"},400);
-        }
-      }
-
-      await sql.begin(async tx=>{
-        await tx`DELETE FROM tutor_availability WHERE person_key=${personKey}`;
-        for(const b of blocks){
-          await tx`
-            INSERT INTO tutor_availability(person_key,date,start,"end",note,source,created_at)
-            VALUES(${personKey},${b.date},${b.start},${b.end},${b.note||""},'OP paste',${shanghaiNow()})
-          `;
-        }
-      });
-      return json({ok:true,count:blocks.length});
     }
 
     if(path==="/api/admin/g12-blocks/replace"){
