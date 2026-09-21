@@ -105,11 +105,6 @@ function renderStudent(){
     msg.classList.remove("hidden");
     return;
   }
-  if(currentStudent.availability_state==="tutor_pending"){
-    msg.textContent="该班面谈时间尚未开放，请稍后再次查看或留意学校通知。";
-    msg.classList.remove("hidden");
-    return;
-  }
   if(currentStudent.availability_state==="not_in_round"){
     msg.textContent="该学生本轮暂未开放在线预约，请联系学校确认。";
     msg.classList.remove("hidden");
@@ -228,14 +223,13 @@ function renderStats(){
     ["已预约",s.booked],
     ["已发布时段",s.published],
     ["Coco另行安排",s.coco],
-    ["G11-3待开放",s.g11_3]
+    ["G11-3学生",s.g11_3]
   ].map(x=>`<div class="stat"><span>${esc(x[0])}</span><b>${x[1]}</b></div>`).join("");
 }
 function studentStatus(s){
   const b=adminState.bookings.find(x=>x.student_id===s.id&&x.status==="active");
   if(b)return `<span class="status-green">已预约 ${esc(b.date)} ${esc(b.start)}</span>`;
   if(s.cas_key==="Coco")return '<span class="status-amber">另行安排</span>';
-  if(s.class_name==="G11-3")return '<span class="status-amber">待开放</span>';
   return "<span>待预约</span>";
 }
 function renderStudentTable(){
