@@ -914,6 +914,39 @@ export default {
   ],
   "slots": [
     {
+      "slot_key": "Emma|2026-09-21|09:00|10:00",
+      "cas_key": "Emma",
+      "date": "2026-09-21",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Joyce|2026-09-21|09:00|10:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-21",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-21|09:00|10:00",
+      "cas_key": "Willa",
+      "date": "2026-09-21",
+      "start": "09:00",
+      "end": "10:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
       "slot_key": "Emma|2026-09-21|10:15|11:15",
       "cas_key": "Emma",
       "date": "2026-09-21",
@@ -954,6 +987,61 @@ export default {
       ],
       "source_status": "待锁定",
       "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-21|13:30|14:30",
+      "cas_key": "Joyce",
+      "date": "2026-09-21",
+      "start": "13:30",
+      "end": "14:30",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Joyce|2026-09-21|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-21",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-21|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-21",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Joyce|2026-09-21|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-21",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-21|16:00|17:00",
+      "cas_key": "Willa",
+      "date": "2026-09-21",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
     },
     {
       "slot_key": "Emma|2026-09-22|09:00|10:00",
@@ -1060,6 +1148,28 @@ export default {
       ],
       "source_status": "待锁定",
       "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-22|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-22",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-22|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-22",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
     },
     {
       "slot_key": "Emma|2026-09-22|16:00|17:00",
@@ -1529,6 +1639,17 @@ export default {
       "source_reason": "条件可用，需先从十二年级预约端锁定"
     },
     {
+      "slot_key": "Joyce|2026-09-24|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-24",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周四",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
       "slot_key": "Emma|2026-09-24|14:55|15:45",
       "cas_key": "Emma",
       "date": "2026-09-24",
@@ -1732,6 +1853,50 @@ export default {
       "source_reason": "条件可用，需先从十二年级预约端锁定"
     },
     {
+      "slot_key": "Joyce|2026-09-28|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-28",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-28|14:55|15:45",
+      "cas_key": "Willa",
+      "date": "2026-09-28",
+      "start": "14:55",
+      "end": "15:45",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Joyce|2026-09-28|16:00|17:00",
+      "cas_key": "Joyce",
+      "date": "2026-09-28",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
+      "slot_key": "Willa|2026-09-28|16:00|17:00",
+      "cas_key": "Willa",
+      "date": "2026-09-28",
+      "start": "16:00",
+      "end": "17:00",
+      "weekday": "周一",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
+    },
+    {
       "slot_key": "Emma|2026-09-29|09:00|10:00",
       "cas_key": "Emma",
       "date": "2026-09-29",
@@ -1893,6 +2058,17 @@ export default {
       ],
       "source_status": "待锁定",
       "source_reason": "条件可用，需先从十二年级预约端锁定"
+    },
+    {
+      "slot_key": "Joyce|2026-09-29|14:45|15:45",
+      "cas_key": "Joyce",
+      "date": "2026-09-29",
+      "start": "14:45",
+      "end": "15:45",
+      "weekday": "周二",
+      "eligible_classes": [],
+      "source_status": "可用",
+      "source_reason": "CAS 原预约表当前可用"
     },
     {
       "slot_key": "Emma|2026-09-29|14:55|15:45",
