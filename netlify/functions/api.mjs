@@ -1,4 +1,5 @@
 import postgres from "postgres";
+import ExcelJS from "exceljs";
 import { getConnectionString } from "@netlify/database";
 import seed from "./seed.js";
 
@@ -534,6 +535,100 @@ async function handle(req){
     return json({
       students,slots,g12_blocks:g12Blocks,
       bookings:bookings.map(b=>({...b,end:b.end})),stats
+    });
+  }
+
+  if(path==="/api/admin/export-g11.xlsx"&&req.method==="GET"){
+    const denied=requireAdmin(req);
+    if(denied)return denied;
+
+    const rows=await sql`
+      SELECT
+        s.id,s.zh_name,s.en_name,s.class_name,s.tutor,s.cas,s.cas_key,s.round_status,
+        b.id AS booking_id,b.status AS booking_status,b.created_at,
+        sl.date,sl.start,sl."end",sl.weekday
+      FROM students s
+      LEFT JOIN bookings b
+        ON b.student_id=s.id AND b.status='active'
+      LEFT JOIN slots sl
+        ON sl.slot_key=b.slot_key
+      WHERE s.class_name IN ('G11-1','G11-2','G11-3')
+      ORDER BY
+        s.class_name,
+        CASE WHEN sl.date IS NULL THEN 1 ELSE 0 END,
+        sl.date,sl.start,s.id
+    `;
+
+    const workbook=new ExcelJS.Workbook();
+    workbook.creator="RGSG IHS";
+    workbook.created=new Date();
+
+    const classes=["G11-1","G11-2","G11-3"];
+    for(const className of classes){
+      const ws=workbook.addWorksheet(className,{
+        views:[{state:"frozen",ySplit:1}]
+      });
+
+      ws.columns=[
+        {header:"中文姓名",key:"zh_name",width:14},
+        {header:"English Name",key:"en_name",width:18},
+        {header:"CAS",key:"cas",width:20},
+        {header:"班主任",key:"tutor",width:24},
+        {header:"预约日期",key:"date",width:14},
+        {header:"星期",key:"weekday",width:10},
+        {header:"开始时间",key:"start",width:12},
+        {header:"结束时间",key:"end",width:12},
+        {header:"预约状态",key:"status",width:14},
+        {header:"预约提交时间",key:"created_at",width:22}
+      ];
+
+      const header=ws.getRow(1);
+      header.font={bold:true};
+      header.alignment={vertical:"middle",horizontal:"center"};
+      header.height=22;
+      ws.autoFilter={from:"A1",to:"J1"};
+
+      const classRows=rows.filter(r=>r.class_name===className);
+      for(const r of classRows){
+        let status="待预约";
+        if(r.booking_id)status="已预约";
+        else if(r.cas_key==="Coco")status="另行安排";
+        else if(r.round_status!=="纳入本轮")status="暂未开放";
+
+        const row=ws.addRow({
+          zh_name:r.zh_name,
+          en_name:r.en_name||"",
+          cas:r.cas||"",
+          tutor:r.tutor||"",
+          date:r.date||"",
+          weekday:r.weekday||"",
+          start:r.start||"",
+          end:r.end||"",
+          status,
+          created_at:r.created_at||""
+        });
+        row.alignment={vertical:"middle"};
+      }
+
+      // Keep the schedule readable when printed/exported.
+      ws.pageSetup={
+        orientation:"landscape",
+        fitToPage:true,
+        fitToWidth:1,
+        fitToHeight:0,
+        paperSize:9
+      };
+      ws.pageMargins={left:0.25,right:0.25,top:0.5,bottom:0.5,header:0.2,footer:0.2};
+    }
+
+    const buffer=await workbook.xlsx.writeBuffer();
+    return new Response(buffer,{
+      status:200,
+      headers:{
+        "content-type":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content-disposition":'attachment; filename="G11_booking_schedule.xlsx"',
+        "cache-control":"no-store"
+      }
     });
   }
 
