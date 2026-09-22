@@ -214,7 +214,6 @@ function renderAdmin(){
   renderStudentTable();
   renderSlotTable();
   renderBookings();
-  renderEmmaBlocks();
 }
 function renderStats(){
   const s=adminState.stats;
@@ -334,58 +333,6 @@ window.adminCancelBooking=async(id,name)=>{
     await api("/api/admin/cancel-booking",{pin:adminPin,booking_id:id});
     await loadAdmin();
     toast("预约已取消");
-  }catch(e){alert(e.message)}
-};
-
-function normalizeDate(v){
-  const s=String(v||"").trim().replaceAll(".","/").replaceAll("-","/");
-  const p=s.split("/").filter(Boolean);
-  if(p.length===3){
-    const y=p[0].length===4?Number(p[0]):2026;
-    const m=Number(p[1]), d=Number(p[2]);
-    return `${y}-${String(m).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
-  }
-  if(p.length===2){
-    return `2026-${String(Number(p[0])).padStart(2,"0")}-${String(Number(p[1])).padStart(2,"0")}`;
-  }
-  return "";
-}
-function normalizeTime(v){
-  const m=String(v||"").trim().match(/(\d{1,2}):(\d{2})/);
-  return m?`${String(Number(m[1])).padStart(2,"0")}:${m[2]}`:"";
-}
-function parseEmmaBlocks(text){
-  const lines=String(text||"").split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
-  const blocks=[];
-  const bad=[];
-  lines.forEach((line,i)=>{
-    let cols=line.split("\t");
-    if(cols.length<3) cols=line.split(",").map(x=>x.trim());
-    if(cols.length<3) cols=line.split(/\s{2,}/).map(x=>x.trim());
-    const date=normalizeDate(cols[0]);
-    const start=normalizeTime(cols[1]);
-    const end=normalizeTime(cols[2]);
-    const note=cols.slice(3).join(" ").trim();
-    if(!date||!start||!end||start>=end) bad.push(i+1);
-    else blocks.push({date,start,end,note});
-  });
-  if(bad.length) throw new Error("以下行无法识别："+bad.join("、")+"。请确保每行至少有 日期、开始、结束。");
-  return blocks;
-}
-function renderEmmaBlocks(){
-  const rows=(adminState.g12_blocks||[]).filter(x=>x.person_key==="Emma");
-  $("#emmaBlocksSummary").textContent=rows.length
-    ?`当前已记录 Emma 的 G12 占用时间 ${rows.length} 条；最近一次：${rows[0].date} ${rows[0].start}–${rows[0].end}`
-    :"当前尚未录入 Emma 的 G12 占用时间。";
-}
-$("#replaceEmmaBlocks").onclick=async()=>{
-  try{
-    const blocks=parseEmmaBlocks($("#emmaG12Paste").value);
-    if(!confirm(`将用这 ${blocks.length} 条记录覆盖 Emma 当前的 G12 占用时间，继续吗？`))return;
-    await api("/api/admin/g12-blocks/replace",{pin:adminPin,person_key:"Emma",blocks});
-    $("#emmaG12Paste").value="";
-    await loadAdmin();
-    toast("Emma G12 占用时间已更新");
   }catch(e){alert(e.message)}
 };
 
