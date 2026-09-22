@@ -190,6 +190,23 @@ async function loadAdmin(){
   adminState=j;
   renderAdmin();
 }
+async function exportG11Excel(){
+  const r=await fetch("/api/admin/export-g11.xlsx",{headers:{"X-Admin-Pin":adminPin}});
+  if(!r.ok){
+    const j=await r.json().catch(()=>({}));
+    throw new Error(j.error||"导出 G11 预约时间表失败");
+  }
+  const blob=await r.blob();
+  const tmp=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=tmp;
+  a.download="G11_预约时间表.xlsx";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(tmp);
+}
+
 async function exportCsv(){
   const teacher=$("#teacherExportFilter").value;
   const url="/api/admin/export.csv"+(teacher?"?teacher="+encodeURIComponent(teacher):"");
@@ -356,6 +373,11 @@ $("#publishAllSlots").onclick=async()=>{
   }catch(e){
     alert(e.message);
   }
+};
+
+$("#exportG11Excel").onclick=async(e)=>{
+  e.preventDefault();
+  try{await exportG11Excel()}catch(err){alert(err.message)}
 };
 
 $("#exportCsv").onclick=async(e)=>{
